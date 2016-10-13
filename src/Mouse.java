@@ -8,6 +8,7 @@ import javax.swing.JFrame;
 
 public class Mouse extends MouseAdapter {
 	private Random generator = new Random();
+	int counter = 0;
 
 	public void mousePressed(MouseEvent e) {
 		switch (e.getButton()) {
@@ -62,32 +63,6 @@ public class Mouse extends MouseAdapter {
 	}
 
 	
-
-	public Color colorSpace2(Color w) {
-
-		Color newColor = w;
-		Color wColor = Color.WHITE;
-		int rand = generator.nextInt(3);
-
-		do {
-
-			switch (rand) {
-			case 0:
-				newColor = Color.PINK;
-				break;
-			case 1:
-				newColor = new Color(0xFBCEB1);// Apricot
-				break;
-			case 2:
-				newColor = new Color(0x40E0D0);// Turqoise
-				break;
-			}
-
-		} while (newColor.equals(wColor));
-
-		return newColor;
-	}
-
 	public void mouseReleased(MouseEvent e) {
 		switch (e.getButton()) {
 		case 1: // Left mouse button
@@ -118,6 +93,20 @@ public class Mouse extends MouseAdapter {
 			int gridX = myPanel.getGridX(x, y);
 			int gridY = myPanel.getGridY(x, y);
 			Color newColor = null;
+			int[] mineArrayX = CreateMines.mineCreatorX();
+			int[] mineArrayY = CreateMines.mineCreatorY();
+			if(counter ==0){
+				for (int i = 0; i < 9; i++) {
+					if ((mineArrayX[i] == myPanel.mouseDownGridX)&&(mineArrayY[i] == myPanel.mouseDownGridY)) {
+						for (int j = 0; j < 9; j++) {
+						myPanel.colorArray[mineArrayX[j]][mineArrayY[j]] = Color.BLACK;
+						myPanel.repaint();
+						counter++;
+						}
+					}
+				}
+			}
+			
 
 			if ((myPanel.mouseDownGridX == -1) || (myPanel.mouseDownGridY == -1)) {
 				// Had pressed outside
@@ -134,18 +123,20 @@ public class Mouse extends MouseAdapter {
 					} else {
 						// Released the mouse button on the same cell where it
 						// was pressed
-					
+						if(myPanel.colorArray[myPanel.mouseDownGridX][myPanel.mouseDownGridY] != Color.BLACK){
 							
 							Color wColor = Color.WHITE;
 						
 							do {
-									newColor = Color.BLACK;
+									newColor = Color.LIGHT_GRAY;
 							} while ((newColor.equals(wColor)));
 
 							myPanel.colorArray[myPanel.mouseDownGridX][myPanel.mouseDownGridY] = newColor;
 							myPanel.repaint();
 						
 						}
+						}
+							
 							
 						
 						
@@ -217,5 +208,7 @@ public class Mouse extends MouseAdapter {
 			// Do nothing
 			break;
 		}
+		
 	}
+	
 }
