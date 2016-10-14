@@ -3,13 +3,14 @@ import java.awt.Component;
 import java.awt.Insets;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.Random;
 import javax.swing.JFrame;
 
 public class Mouse extends MouseAdapter {
-	private Random generator = new Random();
 	int counter = 0;
-
+	int[] mineArrayX = CreateMines.mineCreatorX();
+	int[] mineArrayY = CreateMines.mineCreatorY();
+	final int rows = 9;
+	final int columns =9;
 	public void mousePressed(MouseEvent e) {
 		switch (e.getButton()) {
 		case 1: // Left mouse button
@@ -61,7 +62,7 @@ public class Mouse extends MouseAdapter {
 			break;
 		}
 	}
-
+	
 	
 	public void mouseReleased(MouseEvent e) {
 		switch (e.getButton()) {
@@ -93,12 +94,11 @@ public class Mouse extends MouseAdapter {
 			int gridX = myPanel.getGridX(x, y);
 			int gridY = myPanel.getGridY(x, y);
 			Color newColor = null;
-			int[] mineArrayX = CreateMines.mineCreatorX();
-			int[] mineArrayY = CreateMines.mineCreatorY();
+			
 			if(counter ==0){
-				for (int i = 0; i < 9; i++) {
+				for (int i = 0; i < rows; i++) {
 					if ((mineArrayX[i] == myPanel.mouseDownGridX)&&(mineArrayY[i] == myPanel.mouseDownGridY)) {
-						for (int j = 0; j < 9; j++) {
+						for (int j = 0; j < columns; j++) {
 						myPanel.colorArray[mineArrayX[j]][mineArrayY[j]] = Color.BLACK;
 						myPanel.repaint();
 						counter++;
@@ -123,26 +123,24 @@ public class Mouse extends MouseAdapter {
 					} else {
 						// Released the mouse button on the same cell where it
 						// was pressed
-						if(myPanel.colorArray[myPanel.mouseDownGridX][myPanel.mouseDownGridY] != Color.BLACK){
-							
+						if (myPanel.colorArray[myPanel.mouseDownGridX][myPanel.mouseDownGridY] != Color.BLACK) {
 							Color wColor = Color.WHITE;
-						
+							
+
 							do {
-									newColor = Color.LIGHT_GRAY;
+								newColor = Color.LIGHT_GRAY;
 							} while ((newColor.equals(wColor)));
 
 							myPanel.colorArray[myPanel.mouseDownGridX][myPanel.mouseDownGridY] = newColor;
 							myPanel.repaint();
 						
 						}
-						}
-							
-							
-						
-						
-					
+
+					}
+
 				}
 			}
+
 			break;
 		case 3: // Right mouse button
 			Component c2 = e.getComponent();
