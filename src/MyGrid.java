@@ -45,7 +45,7 @@ public class MyGrid extends JPanel {
 		int y2 = getHeight() - myInsets.bottom - 1;
 		int width = x2 - x1;
 		int height = y2 - y1;
-
+	
 		//Paint the background
 		g.setColor(Color.GRAY);
 		g.fillRect(x1, y1, width + 1, height + 1);
@@ -73,6 +73,8 @@ public class MyGrid extends JPanel {
 			}
 		}
 	}
+	
+	
 	public int getGridX(int x, int y) {
 		Insets myInsets = getInsets();
 		int x1 = myInsets.left;
@@ -119,4 +121,5 @@ public class MyGrid extends JPanel {
 		}
 		return y;
 	}
+	
 }

@@ -9,8 +9,26 @@ public class Mouse extends MouseAdapter {
 	int counter = 0;
 	int[] mineArrayX = CreateMines.mineCreatorX();
 	int[] mineArrayY = CreateMines.mineCreatorY();
+/**/
 	final int rows = 9;
 	final int columns =9;
+/*	int bombX=0;
+	int bombY =0;
+
+	public boolean setBomb(int bombX, int bombY) {
+		
+		for(int i =0; i<rows; i++){
+			while(dummyArrayX[i] != mineArrayX[i] && dummyArrayY[i] != mineArrayY[i]){
+				return false;
+			}
+			bombX = dummyArrayX[i];
+			bombY = dummyArrayY[i];
+		}
+		return true;
+	}
+
+	*/
+	
 	public void mousePressed(MouseEvent e) {
 		switch (e.getButton()) {
 		case 1: // Left mouse button
@@ -125,15 +143,24 @@ public class Mouse extends MouseAdapter {
 						// was pressed
 						if (myPanel.colorArray[myPanel.mouseDownGridX][myPanel.mouseDownGridY] != Color.BLACK) {
 							Color wColor = Color.WHITE;
-							
 
+							
+							
 							do {
 								newColor = Color.LIGHT_GRAY;
-							} while ((newColor.equals(wColor)));
-
+							} while (newColor.equals(wColor));
 							myPanel.colorArray[myPanel.mouseDownGridX][myPanel.mouseDownGridY] = newColor;
 							myPanel.repaint();
-						
+							/*int bombX = 0;
+							int bombY = 0;
+							boolean bomb = setBomb(bombX, bombY);
+							if(bomb = false){
+								
+								
+							}*/
+
+							
+							
 						}
 
 					}
