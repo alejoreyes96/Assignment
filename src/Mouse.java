@@ -3,7 +3,9 @@ import java.awt.Component;
 import java.awt.Insets;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 public class Mouse extends MouseAdapter {
 	int counter = 0;
@@ -121,9 +123,23 @@ public class Mouse extends MouseAdapter {
 						myPanel.repaint();
 						counter++;
 						}
+						myFrame.repaint();
+						try {
+							Thread.sleep(25);
+						} catch (InterruptedException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}					
+					
+					JOptionPane.showMessageDialog(null, "Game Over! To retry push the refresh button!");
+
+					
+				
+
+						}
 					}
 				}
-			}
+			
 			
 
 			if ((myPanel.mouseDownGridX == -1) || (myPanel.mouseDownGridY == -1)) {
