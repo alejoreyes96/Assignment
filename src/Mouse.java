@@ -11,8 +11,6 @@ public class Mouse extends MouseAdapter {
 	int counter = 0;
 	int[] mineArrayX = CreateMines.mineCreatorX();
 	int[] mineArrayY = CreateMines.mineCreatorY();
-	int[] dummyArrayX = CreateMines.arrayCreator();
-	int[] dummyArrayY = CreateMines.arrayCreator();
 	final int rows = 9;
 	final int columns = 9;
 
@@ -202,7 +200,7 @@ public class Mouse extends MouseAdapter {
 
 							do {
 								newColor = Color.RED;
-							} while ((newColor.equals(wColor))); 
+							} while ((newColor.equals(wColor)));
 
 							myPanel2.colorArray[myPanel2.mouseDownGridX][myPanel2.mouseDownGridY] = newColor;
 							myPanel2.repaint();
