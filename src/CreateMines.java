@@ -38,7 +38,7 @@ public class CreateMines extends Mouse {
 		/*public boolean setBombsX(){
 			int i =0;
 			int j =0;
-			if(dummyArrayX[])
+			if(dummyArrayX[i])
 				
 			
 			return false;
