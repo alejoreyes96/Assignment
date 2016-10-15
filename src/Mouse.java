@@ -14,6 +14,7 @@ public class Mouse extends MouseAdapter {
 	final int rows = 9;
 	final int columns = 9;
 
+	
 	public void mousePressed(MouseEvent e) {
 		switch (e.getButton()) {
 		case 1: // Left mouse button

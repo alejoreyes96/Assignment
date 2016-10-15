@@ -9,6 +9,7 @@ public class CreateMines extends Mouse {
 				if (a[i] == a[j]) {
 					i--;
 					break;
+					
 
 				}
 
