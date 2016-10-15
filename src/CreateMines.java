@@ -1,5 +1,5 @@
 
-public class CreateMines {
+public class CreateMines extends Mouse {
 
 	public static int[] mineCreatorX() {
 		int[] a = new int[9];
@@ -34,7 +34,25 @@ public class CreateMines {
 		
 	return a;
 	}
+
+		/*public boolean setBombsX(){
+			int i =0;
+			int j =0;
+			if(dummyArrayX[])
+				
+			
+			return false;
+			
+		}
+	public boolean setBombsY(){
+			
+			return false;
+			
+		}*/
 }
+	
+
+
 	
 	
 		
