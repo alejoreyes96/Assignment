@@ -202,7 +202,7 @@ public class Mouse extends MouseAdapter {
 
 							do {
 								newColor = Color.RED;
-							} while ((newColor.equals(wColor)));
+							} while ((newColor.equals(wColor))); 
 
 							myPanel2.colorArray[myPanel2.mouseDownGridX][myPanel2.mouseDownGridY] = newColor;
 							myPanel2.repaint();

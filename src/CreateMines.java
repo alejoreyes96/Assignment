@@ -35,10 +35,10 @@ public class CreateMines extends Mouse {
 	return a;
 	}
 
-		/*public boolean setBombsX(){
+		public boolean setBombsX(){
 			int i =0;
 			int j =0;
-			if(dummyArrayX[i])
+		//	if(dummyArrayX[i])
 				
 			
 			return false;
@@ -48,7 +48,7 @@ public class CreateMines extends Mouse {
 			
 			return false;
 			
-		}*/
+		}
 }
 	
 
